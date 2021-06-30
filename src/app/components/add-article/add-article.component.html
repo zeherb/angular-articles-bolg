@@ -1,0 +1,63 @@
+<body>
+  <form class="example-form" [formGroup]="articleForm" (ngSubmit)="post()">
+    <table class="example-full-width">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input type="text" formControlName="title" matInput required />
+            <mat-error *ngIf="articleForm.controls.title.errors?.required">
+              Please add a <strong>title</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="form-label" for="customFile">Upload a picture</label>
+          <input
+            type="file"
+            class="form-control"
+            formControlName="pic"
+            id="customFile"
+            (change)="fileCheck($event)"
+          />
+          <mat-error *ngIf="wrongFile">
+            <strong>Wrong </strong> uploaded File
+          </mat-error>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Article content</mat-label>
+            <textarea
+              id="articleContetnt"
+              formControlName="content"
+              matInput
+              required
+            ></textarea>
+            <mat-error *ngIf="articleForm.controls.content.errors?.required">
+              Please add your article <strong>Content</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td align="end">
+          <button
+            type="submit"
+            class="btn btn-outline-primary"
+            [disabled]="!articleForm.valid || wrongFile"
+          >
+            Post
+          </button>
+          <p style="color: green" *ngIf="postedArticle">
+            Article Posted Successfuly
+          </p>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>

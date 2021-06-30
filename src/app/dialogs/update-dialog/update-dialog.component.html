@@ -1,0 +1,73 @@
+<body>
+  <form
+    class="example-form"
+    [formGroup]="UpdateForm"
+    (ngSubmit)="updateArticle()"
+  >
+    <table class="example-full-width">
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input type="text" formControlName="title" matInput required />
+            <mat-error *ngIf="UpdateForm.controls.title.errors?.required">
+              Please add a <strong>title</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <label class="form-label" for="customFile">Upload a picture</label>
+          <input
+            type="file"
+            class="form-control"
+            formControlName="pic"
+            id="customFile"
+            (change)="fileCheck($event)"
+          />
+          <mat-error *ngIf="wrongFile">
+            <strong>Wrong </strong> uploaded File
+          </mat-error>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Article content</mat-label>
+            <textarea
+              id="articleContetnt"
+              formControlName="content"
+              matInput
+              required
+            ></textarea>
+            <mat-error *ngIf="UpdateForm.controls.content.errors?.required">
+              Please add your article <strong>Content</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p style="color: green" *ngIf="updatedArticle">
+            Article Updated Successfuly
+          </p>
+        </td>
+        <td id="btnGroup" align="end">
+          <button class="btn btn-secondary" [mat-dialog-close]="false">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="btn btn-success"
+            [mat-dialog-close]="true"
+            [disabled]="!UpdateForm.valid || wrongFile"
+          >
+            Updtae
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>

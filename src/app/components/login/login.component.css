@@ -1,0 +1,24 @@
+body {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-form {
+  padding: 2%;
+  width: 40%;
+  height: fit-content;
+  background-color: white;
+
+  box-shadow: 1px 1px 1px 1px;
+  border-radius: 2%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}

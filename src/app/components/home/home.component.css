@@ -1,0 +1,16 @@
+.example-full-width {
+  width: 100%;
+}
+body {
+  display: flex;
+  margin: 2%;
+  flex-direction: column;
+}
+#article-img {
+  min-height: 200px;
+  width: 30%;
+}
+#article-img img {
+  min-height: 200px;
+  width: 100%;
+}

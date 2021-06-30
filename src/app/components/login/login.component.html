@@ -1,0 +1,49 @@
+<body>
+  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <h3><strong>Login :</strong></h3>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required />
+            <mat-error *ngIf="loginForm.controls.email.errors?.required">
+              This field is<strong> required</strong>
+            </mat-error>
+            <mat-error *ngIf="loginForm.controls.email.errors?.email">
+              Email is <strong> invalid</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              name="password"
+              matInput
+              formControlName="password"
+              type="password"
+              required
+            />
+            <mat-error *ngIf="loginForm.controls.password.errors?.required">
+              Password is <strong> required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-error *ngIf="notFoundEmail || wrongPassword">
+            Wrong input <strong> infos</strong>
+          </mat-error>
+        </td>
+        <td align="end">
+          <button type="sybmit" class="btn btn-primary">Login</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>

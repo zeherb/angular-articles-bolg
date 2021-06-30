@@ -1,0 +1,102 @@
+<body>
+  <form class="example-form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <h3><strong>Register :</strong></h3>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput required />
+            <mat-error *ngIf="registerForm.controls.firstName.errors">
+              This field is<strong> required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Last Name </mat-label>
+            <input formControlName="lastName" matInput required />
+            <mat-error *ngIf="registerForm.controls.lastName.errors">
+              This field is<strong> required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Gendre</mat-label>
+            <mat-select formControlName="gendre" required>
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.controls.gendre.errors">
+              This field is<strong> required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required />
+            <mat-error *ngIf="registerForm.controls.email.errors?.required">
+              This field is<strong> required</strong>
+            </mat-error>
+            <mat-error *ngIf="registerForm.controls.email.errors?.email">
+              Email is <strong> invalid</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              name="password"
+              matInput
+              formControlName="password"
+              type="password"
+              required
+            />
+            <mat-error *ngIf="registerForm.controls.password.errors?.required">
+              Password is <strong> required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              matInput
+              name="confirmPassword"
+              appComparePassword="password"
+              formControlName="confirmPassword"
+              type="password"
+              required
+            />
+            <mat-error
+              *ngIf="registerForm.controls.confirmPassword.errors?.required"
+            >
+              Confirmation is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="registerForm.controls.confirmPassword.errors?.notEqual"
+            >
+              Password does not <strong>match</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="end">
+          <button type="sybmit" class="btn btn-primary">Register</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>

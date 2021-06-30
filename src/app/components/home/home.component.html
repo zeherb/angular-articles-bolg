@@ -1,0 +1,45 @@
+<body>
+  <div class="input-group rounded">
+    <input
+      type="search"
+      class="form-control rounded"
+      placeholder="Search"
+      aria-label="Search"
+      #searchBar
+      aria-describedby="search-addon"
+      (keyup)="searching(searchBar.value)"
+    />
+    <span class="input-group-text border-0" id="search-addon">
+      <i class="fas fa fa-search"></i>
+    </span>
+  </div>
+  <br />
+  <table
+    class="example-full-width"
+    *ngFor="let article of articlesList | filter: search"
+  >
+    <tr id="card" class="card mb-3">
+      <td class="row g-0">
+        <div id="article-img" class="col-md-4">
+          <img
+            src="{{ article.pic }}"
+            class="img-fluid rounded-start"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2 class="card-title">{{ article.title }}</h2>
+            <p class="card-text">{{ article.content }}</p>
+            <p class="card-text">
+              <small class="text-muted"
+                >Author : {{ article.owner.firstName }}
+                {{ article.owner.lastName }}</small
+              >
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>

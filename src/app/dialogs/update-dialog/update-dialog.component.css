@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.example-form {
+  padding: 2%;
+
+  height: fit-content;
+  background-color: white;
+}
+.example-full-width {
+  width: 100%;
+}
+#articleContetnt {
+  min-height: 100px;
+}
+#btnGroup {
+  display: flex;
+}
+#btnGroup button {
+  margin: 1%;
+}

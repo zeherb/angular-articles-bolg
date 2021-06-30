@@ -1,0 +1,31 @@
+.example-full-width {
+  width: 100%;
+}
+body {
+  margin: 2%;
+}
+#card {
+  display: flex;
+  flex-direction: row;
+}
+#btnGroup {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#btnGroup button {
+  width: 70%;
+  margin: 5%;
+}
+#cardContent {
+  width: 70%;
+}
+#article-img {
+  min-height: 200px;
+  width: 30%;
+}
+#article-img img {
+  min-height: 200px;
+}
